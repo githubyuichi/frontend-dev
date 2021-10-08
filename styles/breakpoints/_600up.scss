@@ -1,0 +1,53 @@
+/******************************************************************
+
+Stylesheet: 600px以上のタブレットやモニタで適用
+
+******************************************************************/
+
+// base.scssにて、.flex-directionがcolumになっていて、メディアクエリーで600になった際にrowに上書きされる
+.flex {
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.travel{
+    &__inner{
+        padding: 50px;
+    }
+    &__img,
+    &__texts{
+        flex-basis: 47%;
+    }
+
+    &__texts{  //__texts-innerを動かす。文字を格納している__texts-innerの親要素
+        display: flex;
+        align-items: flex-end;
+    }
+}
+.houses {
+    &__item{
+        flex-basis: 50%;
+        margin-bottom: 60px;
+    }
+}
+
+.popular {
+    &__container{
+        //flexでは一つのコンテンツの中で共通して取り得る値は親の要素に、個別に取り得る値の時は子要素に
+        justify-content: space-between; //余白が中央にくるようになる
+    }
+    
+    &__item{
+        flex-basis: 47%;  //残り6%分は余白となる
+    }
+}
+
+.footer{
+    & .logo {
+        justify-content: flex-start;
+    }
+
+    &__li {
+        margin-left: 0;
+        margin-right: 30px;
+    }
+}

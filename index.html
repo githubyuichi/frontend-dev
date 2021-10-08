@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StayWorld</title>
+    <meta name="description" content="Test site is a test site">
+    <!-- ぐーぐるのタイトルの下の説明欄を書くことが出来ます。160文字程度 -->
+    <link rel="icon" href="images/favicon.png">
+    <!-- サイトのアイコンを設定することが出来ます -->
+    
+    <link rel="stylesheet" href="styles/loader.css">
+    <script src="scripts/venders/pace.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kameron:wght@400;700&family=Noto+Sans+JP&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles/venders/bootstrap-reboot.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+    <div id="global-container">
+        <div id="container">
+            <div class="mobile-menu__cover"></div>
+            <div class="nav-trigger"></div>
+            <header class="header">
+                <div class="header__inner appear up content-width">
+                    <div class="logo item">
+                        <img src="images/logo.svg" alt="" class="logo__img">
+                        <span class="logo__stay">Stay</span>
+                        <span class="logo__world">World</span>
+                    </div>
+                    <nav class="header__nav">
+                        <ul class="header__ul">
+                            <li class="header__li item"><a href="#">Service</a></li>
+                            <li class="header__li item"><a href="#">Contact</a></li>
+                            <li class="header__li item">
+                                <a class="btn filled" href="#">Contact</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <button class="mobile-menu__btn">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </header>
+
+            <div id="content">
+                <div class="hero pb-lg">
+                    <!-- Slider main container -->
+                    <div class="swiper">
+                        <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper">
+                            <!-- Slides -->
+                            <div class="swiper-slide">
+                                <div class="hero__title">Enjoy Rich</div>
+                                <img src="images/image-1.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="hero__title">Fantastic</div>
+                                <img src="images/image-2.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="hero__title">Experience</div>
+                                <img src="images/image-3.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="hero__footer">
+                            <img class="hero__downarrow" src="images/arrow.svg" alt="">
+                            <span class="hero__scrolltext">scroll</span>
+                        </div>
+                    </div>
+
+                </div>
+                <div id="main-content">
+                    <!-- 左側に表示するサイドバー -->
+                    <aside class="side left">
+                        <div class="side__inner">
+                            <a class="twitter icon tween-animate-title" href="#">Twitter</a>
+                            <a class="fb icon tween-animate-title" href="#">Facebook</a>
+                        </div>
+                    </aside>
+                    <main>
+                        <section class="travel mb-lg content-width">
+                            <div class="travel__inner">
+                                <div class="travel__img cover-slide mb-sm">
+                                    <img class="img-zoom" src="images/image-travel.jpg" alt="">
+                                </div>
+                                <div class="travel__texts appear left pb-sm">
+                                    <div class="travel__texts-inner">
+                                        <div class="travel__title main-title item">
+                                            <span class="purple">Travel</span><span> the world</span>
+                                        </div>
+                                        <div class="travel__sub sub-title item mb-sm">世界中を旅しよう</div>
+                                        <div class="travel__description item">
+                                            <p>世界１５０ヵ国で<br>利用できる民泊サービスです。</p>
+                                            <p>あなたの望む宿がきっと見つかります。</p>
+                                        </div>
+                                        <div class="travel__btn item">
+                                            <button class="btn filled">Button</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="houses mb-lg content-width">
+                            <div>
+                                <h2 class="main-title font-lg tween-animate-title">Find Your House</h2>
+                                <p class="sub-title font-sm tween-animate-title">お気に入りの宿泊先を見つけましょう。</p>
+                            </div>
+                            <div class="houses__inner">
+                                <div class="houses__item">
+                                    <div class="cover-slide hover-darken inview">
+                                        <div class="bg-img-zoom img-bg50"
+                                            style="background-image: url(images/villa-1.jpg);"></div>
+                                    </div>
+                                    <p class="houses__title font-lr mb-sm">House 1</p>
+                                </div>
+                                <div class="houses__item">
+                                    <div class="cover-slide hover-darken inview">
+                                        <div class="bg-img-zoom img-bg50"
+                                            style="background-image: url(images/villa-2.jpg);"></div>
+                                    </div>
+                                    <p class="houses__title font-lr mb-sm">House 2</p>
+                                </div>
+                                <div class="houses__btn appear up">
+                                    <button class="btn slide-bg item"><span></span>Button</button>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="popular">
+                            <div class="popular__header content-width">
+                                <h2 class="main-title font-lg tween-animate-title">Popular Place</h2>
+                                <p class="sub-title font-sm tween-animate-title">人気の観光地で宿泊先を見つけましょう</p>
+                            </div>
+                            <div class="popular__inner appear up">
+                                <!-- 薄い背景を設定するため、全体は括らずpopular__header　とcontainerだけに -->
+                                <div class="popular__container content-width">
+                                    <div class="popular__item item">
+                                        <div class="popular__img"><img src="images/image-p1.jpg" alt=""></div>
+                                        <div class="popular__title font-lr mb-md">パリ</div>
+                                    </div>
+                                    <div class="popular__item item">
+                                        <div class="popular__img"><img src="images/image-p2.jpg" alt=""></div>
+                                        <div class="popular__title font-lr mb-md">ニューヨーク</div>
+                                    </div>
+                                    <div class="popular__btn appear up mb-lg">
+                                        <button class="btn cover-3d item"><span>一覧から探す</span></button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </section>
+                    </main>
+                    <!-- 右側に表示するサイドバー -->
+                    <aside class="side right">
+                        <div class="side__inner">
+                            <span class="tween-animate-title">&copy;Code Mafia</span>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+            
+            <footer class="footer appear up content-width">
+                <div class="logo item">
+                    <img src="images/logo.svg" alt="" class="logo__img">
+                    <span class="logo__stay">Stay</span>
+                    <span class="logo__world">World</span>
+                </div>
+                <nav class="footer__nav">
+                    <ul class="footer__ul">
+                        <li class="footer__li item"><a href="#">Service</a></li>
+                        <li class="footer__li item"><a href="#">Contact</a></li>
+                        <li class="footer__li item"><a href="#">Company</a></li>
+                        <li class="footer__li item"><a href="#">Sitemap</a></li>
+                    </ul>
+                    <div class="footer__copyright">
+                        &copy; Code Mafia
+                        <!-- &copy; とすることで、©を表せる -->
+                    </div>
+                </nav>
+            </footer>
+        </div>
+        <nav class="mobile-menu">
+            <div class="logo">
+                <img src="images/logo.svg" alt="" class="logo__img">
+                <span class="logo__stay">Stay</span>
+                <span class="logo__world">World</span>
+            </div>
+            <ul class="mobile-menu__main">
+                <li class="mobile-menu__item">
+                    <a class="mobile-menu__link" href="#">
+                        <span class="main-title">Our Service</span>
+                        <span class="sub-title">サービスについて</span>
+                    </a>
+                </li>
+                <li class="mobile-menu__item">
+                    <a class="mobile-menu__link" href="#">
+                        <span class="main-title">About Us</span>
+                        <span class="sub-title">私たちについて</span>
+                    </a>
+                </li>
+                <li class="mobile-menu__item">
+                    <a class="mobile-menu__link" href="#">
+                        <span class="main-title">Contact Us</span>
+                        <span class="sub-title">コンタクト方法</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- <div class="tween-animate-title">animate-title</div> -->
+    <!-- <div class="cover-slide hover-darken inview">
+        <div class="bg-img-zoom img-bg50"></div>
+    </div> -->
+    <!-- <div class="cover-slide hover-darken">
+        <img class="img-zoom" src="images/image-1.jpg" alt="">
+      </div> -->
+
+    <!-- <button class="btn float">Button</button>
+      <button class="btn filled">Button</button>
+      <button class="btn letter-spacing">Button</button>
+      <button class="btn shadow">Button</button>
+      <button class="btn solid">Button</button>
+      <button class="btn slide-bg"><span></span>Button</button>
+      <button class="btn cover-3d"><span>Button</span></button>
+      <a class="btn-cubic"><span class="hovering">Now, Hovering</span><span class="default">Button</span></a> -->
+
+
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="scripts/venders/TweenMax.min.js"></script>
+    <script src="scripts/venders/scroll-polyfill.js"></script>
+    <script src="scripts/libs/hero-slider.js"></script>
+    <script src="scripts/libs/text-animation.js"></script>
+    <script src="scripts/libs/scroll.js"></script>
+    <script src="scripts/libs/mobile-menu.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+
+</html>

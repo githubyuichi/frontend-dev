@@ -1,0 +1,374 @@
+/******************************************************************
+
+Stylesheet: ベーススタイル
+
+******************************************************************/
+
+body{
+    //順番が肝心。最初にローマ字、次に日本語
+    font-family: 'Kameron', 'Noto Sans JP', sans-serif;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: bottom;
+}
+
+// base.scssなので、スマートフォン用のフォントサイズ
+.font-sm{
+    font-size: 14px; //smはスモールの略。
+}
+.font-md{
+    font-size: 17px; 
+}
+.font-lr{
+    font-size: 17px; 
+}
+.font-lg{
+    font-size: 25px; 
+}
+//margin-bottomの略
+.mb-sm{
+    margin-bottom: 16px !important;
+}
+.mb-lg{
+    margin-bottom: 80px !important;
+}
+
+.pb-sm{
+    padding-bottom: 16px !important;
+}
+.pb-lg{
+    padding-bottom: 80px !important;
+}
+
+//bootstrap spacingでも同様のクラスを付けている。
+
+.content-width{
+    width: 90%;  //90%とすることで、少し余白を開ける
+    margin: 0 auto;  //marin: 0 auto; とすることで中央揃え
+    max-width: $contentMaxWidth;  //desktop時にあまり横幅が広がりすぎないように最大値を設ける
+}
+
+.main-title {
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+.sub-title{
+    color: $cSubTitle;
+    display: block;
+}
+
+.flex {  //一つ親の要素に対してflexを記述してあげる
+    display: flex;
+    flex-direction: column;//デスクトップ表示の際には縦並びにしたいので
+}
+
+.purple{
+    color: $cWineRed;
+}
+
+.swiper{
+    overflow: visible;
+}
+
+#main-content{
+    position: relative;
+    z-index: 0;
+}
+main{
+    position: relative;
+    z-index: -1;
+}
+// main-contentを親にして、mainタグとiconタグをローカルスタッキングコンテキストmainを背面
+
+#container{
+    transition: transform 0.5s, box-shadow 0.5s;
+    position: relative;
+    background-color: $cWhite;
+    z-index: 10;
+}
+
+.header {
+    position: fixed; //スクロースしても画面の上部に固定
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: $navHeight;
+
+    background-color: transparent;//背景色を透明
+    
+    display: flex;
+    align-items: center;
+    z-index: 100;
+
+    &.triggerd{
+        background-color: rgba(255,255,255,0.9);
+        box-shadow: 10px 0 25px -10px rgba(0,0,0,0.5);
+
+    }
+    &__nav {
+        display: none;
+        @extend .flex;
+        justify-content: space-between;
+        align-items: center; //上下中央揃え
+        text-align: center; //インライン要素の左右中央揃え
+    }
+    
+    &__ul {
+        display: flex;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+    
+    &__li {
+        margin-left: 20px;
+         
+        & > a {
+            color: $cBlack;
+            text-decoration: none !important; //ホバー時にアンダーライン付けない
+            text-transform: uppercase; //小文字を大文字に変更
+        }
+    }
+    
+    & .logo {
+        font-size: 38px;
+        justify-content: center;
+    }
+
+    &__inner{
+        display: flex;
+        justify-content: space-between;
+        align-items: center; //要素の上下中央揃え
+    }
+}
+
+.travel{
+    &__inner{  //写真とテキストを横並びに配置したいため、innerにflexを記述する
+        @extend .flex;
+        justify-content: space-between; //flex-basisが適用された段階で作動する。６００から本領発揮
+        padding: 15px;
+        background-color: $cBgGray;
+        position: relative;
+        z-index: 0;
+    }
+
+    &__title {
+        position: relative;
+
+        @include p-base($display:none, $width: 100px, $height:1px, $top:50%, $left:-120px) {
+            background-color: $cBlack;
+            transform: translateY(-50%) scaleX(0);
+            transition: transform 0.3s ease 1.6s; //1.6s後に発火
+            transform-origin: right; //右側から発火するように
+            //@include p-base()によって::beforeが生成 
+            // ここでのtopなどの始まりはpositionのstatistic以外によって規定される 
+        }
+
+        
+    }
+
+    &__img{
+        height: 300px;        
+        transition: box-shadow 1ms linear 0.8s; //0.8s遅れてから、transitionがスタートする
+        
+        &.inview {
+            box-shadow: inset 0 0 30px $cBlack;
+        }
+        & > img{
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            z-index: -1;
+        }
+    }
+
+    &__texts {
+        &.inview {
+            & .travel__title::before {
+                transform: translateY(-50%);
+            }
+        }
+    }
+}
+
+.houses {
+
+    &__inner{
+        @extend .flex;
+    }
+   
+    &__btn{
+        text-align: center;
+        flex-basis: 100%;
+    }
+}
+
+.popular {
+    &__inner {
+        position: relative;
+        &::before{
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 90%;  //bottom: 0;としたため、下から９０％とる。
+            background-color: $cBgGray;
+        }
+    }
+   
+   
+   &__container {
+       @extend .flex;
+       
+       @extend .pb-sm;
+       position: relative; //__innerの背景色より前に持ってくるために、relativeを設定。positionついているほうが前に持ってくることが出来る。z-index設定時には必ず必要な記載
+       z-index: 2;
+   }
+
+   &__btn{
+    text-align: center;
+    flex-basis: 100%;
+   }
+
+   &__img {
+       height: 150px;
+       overflow: hidden;
+       margin-bottom: 5px;
+
+       & > img{
+           object-fit: cover; //divタグの中にピッタリ画像が表示される
+           height: 100%;
+           width: 100%;
+           object-position: bottom; //div内にて画像が下に合わせて表示される
+       }
+   }
+}
+
+.logo {
+    font-size: 42px;
+    display: flex;
+
+    &__img {
+        width: 0.7em;
+    }
+    &__world {
+        color: $cWineRed;
+    }
+}
+
+.footer{
+    padding: 60px 0;
+
+    &__nav {
+        @extend .flex;
+        justify-content: space-between;
+        align-items: center; //上下中央揃え
+        text-align: center; //インライン要素の左右中央揃え
+    }
+
+    &__ul {
+        @extend .flex;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    &__li {
+        padding: 0;
+        margin: 10px;
+        
+        & > a {
+            color: $cWineRed;
+        }
+    }
+
+    & .logo {
+        font-size: 38px;
+        justify-content: center;
+    }
+}
+
+.side {
+    display: none;
+    position: fixed; //スクロールに追随
+    top: 70%; //上から70%の所
+    transform: translateY(-50%);
+    transition: all .3s ease-in;
+
+    & .tween-animate-title
+    {
+        color: $cBlack;
+        text-decoration: none !important;
+        margin: 0 40px; //左右40px空白
+        vertical-align: middle; //アイコンと文字列のインライン要素に対して中央揃えにする
+        letter-spacing: 2px;
+    }
+
+    &.left {
+
+        left: -50px;
+
+        &.inview{
+            left: 50px;
+        }
+
+        & .side__inner{
+            transform-origin: top left; //左上を起点にして回転することを規定してあげる
+            transform: rotate(-90deg);
+        }
+    }
+    &.right {
+
+        right: -50px;
+
+        &.inview{
+            right: 50px;
+        }
+
+        & .side__inner{
+            transform-origin: top right;
+            transform: rotate(90deg);
+        }
+    }
+}
+
+.icon {
+   position: relative;
+   
+   &::before{
+       content: '';
+       position: absolute;
+       left: -20px;
+       top: 50%;
+       width: 1em;
+       height: 1em;
+       transform: translateY(-50%);
+       display: block;
+
+    // バックグラウンドでimg画像を設定する際に必要
+       background-position: center;
+       background-repeat: no-repeat;
+       background-size: contain;
+
+   }
+
+   &.twitter{
+
+    &::before{
+        background-image: url(../images/twitter.svg);
+    }
+   }
+
+   &.fb{
+
+    &::before{
+        background-image: url(../images/facebook.svg);
+    }
+   }
+}
